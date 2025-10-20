@@ -1,0 +1,11 @@
+<div class="container">
+ <app-tables 
+  [columns]="tableColumns"
+  [data]="users"
+  [fields]="{title:'Usuarios', btncrear:'Crear usuario'}" 
+  ruta="/layout/updusuarios/:id" (metodo)="Borrar($event)">
+</app-tables>
+
+</div>
+
+

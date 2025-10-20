@@ -1,0 +1,152 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-warning">
+  <div class="container-fluid">
+    <!-- Botón visible solo en pantallas pequeñas -->
+    <button
+      class="navbar-toggler bg-warning border-0 d-lg-none"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvasMenu"
+      aria-controls="offcanvasMenu"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Título -->
+    <span class="navbar-brand text-white fw-bold fst-italic ms-2">
+      Software Pos Restaurant
+    </span>
+
+    <!-- Menú normal (visible en pantallas grandes) -->
+    <div class="collapse navbar-collapse d-none d-lg-block" id="navmenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link text-white" routerLink="/layout/lusuarios">Usuarios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" routerLink="/layout/sucursales">Sucursales</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle  text-white"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false" >Productos</a>
+          <ul class="dropdown-menu bg-warning bg-opacity-75 backdrop-blur border-0">
+            <li>
+              <a class="dropdown-item text-white" routerLink="/layout/categorias">Categorias</a>
+            </li>
+             <li>
+              <a class="dropdown-item text-white" routerLink="/layout/categorias"  routerLink="/layout/products">Mantenimiento</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" routerLink="/layout/compras">Compras</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" routerLink="/layout/facturas">Facturas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" routerLink="/layout/negocio">Negocio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" routerLink="/layout/facturas">Caja</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle text-white"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Reportes
+          </a>
+          <ul class="dropdown-menu bg-warning bg-opacity-75 backdrop-blur border-0">
+            <li>
+              <a class="dropdown-item text-white" routerLink="/layout/repventas">Ventas</a>
+            </li>
+            <li>
+              <a class="dropdown-item text-white" routerLink="/layout/repcompras">Compras</a>
+            </li>
+            <li>
+              <a class="dropdown-item text-white" routerLink="/layout/est">Estadísticas</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" routerLink="">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Menú lateral (solo visible en móviles) -->
+<div
+  class="offcanvas offcanvas-start bg-warning bg-opacity-50 backdrop-blur text-white"
+  tabindex="-1"
+  id="offcanvasMenu"
+  aria-labelledby="offcanvasMenuLabel"
+>
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title fw-bold" id="offcanvasMenuLabel">Menú</h5>
+    <button
+      type="button"
+      class="btn-close btn-close-white text-reset"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+    ></button>
+  </div>
+
+  <div class="offcanvas-body">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link text-white" routerLink="/layout/lusuarios">Usuarios</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" routerLink="/layout/sucursales">Sucursales</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" routerLink="/layout/products">Productos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" routerLink="/layout/compras">Compras</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" routerLink="/layout/facturas">Facturas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" routerLink="/layout/negocio">Negocio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" routerLink="/layout/facturas">Caja</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle text-white"
+          href="#"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Reportes
+        </a>
+        <ul class="dropdown-menu bg-warning border-0">
+          <li>
+            <a class="dropdown-item text-white" routerLink="/layout/repventas">Ventas</a>
+          </li>
+          <li>
+            <a class="dropdown-item text-white" routerLink="/layout/repcompras">Compras</a>
+          </li>
+          <li>
+        <a class="dropdown-item text-white" routerLink="/layout/est">Estadísticas</a>
+      </li>
+        </ul>
+      </li>
+          <li class="nav-item">
+        <a class="nav-link text-white" routerLink="/layout/est">Log out</a>
+      </li>
+    </ul>
+  </div>
+</div>

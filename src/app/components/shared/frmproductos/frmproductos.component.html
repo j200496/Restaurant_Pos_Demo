@@ -1,0 +1,125 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-4">
+      <h1>{{ titulo }}</h1>
+    </div>
+  </div>
+
+  <form [formGroup]="form">
+    <div class="row justify-content-center">
+      <div class="col-lg-5">
+        <label for="Nombre">Nombre</label>
+        <input
+          class="form-control"
+          formControlName="nombre"
+          type="text"
+          id="Nombre"
+          placeholder="Nombre del producto"
+        />
+
+        <label for="Descripcion">Descripción</label>
+        <input
+          class="form-control"
+          formControlName="descripcion"
+          type="text"
+          id="Descripcion"
+          placeholder="Descripción del producto"
+        />
+
+        <label for="categoria">Categoría</label>
+        <select formControlName="categoria" class="form-control mt-2">
+          <option value="">Seleccione una categoría</option>
+          <option *ngFor="let c of categorias" [value]="c.categoria">
+            {{ c.categoria }}
+          </option>
+        </select>
+        <label class="mt-3">Estado</label>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            formControlName="estado"
+            value="Activo"
+            checked
+          />
+          <label class="form-check-label">Activo</label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            formControlName="estado"
+            value="No Activo"
+          />
+          <label class="form-check-label">No Activo</label>
+        </div>
+      </div>
+
+      <div class="col-lg-5">
+        <label for="Precio">Precio</label>
+        <input
+          class="form-control"
+          formControlName="precio"
+          type="number"
+          id="Precio"
+          placeholder="Precio del producto"
+        />
+
+        <label for="ITBIS">ITBIS %</label>
+        <input
+          class="form-control"
+          formControlName="itbis"
+          type="number"
+          id="ITBIS"
+          placeholder="Ejemplo 0.00"
+        />
+        <div class="col-12">
+          <span
+            class="text-danger"
+            *ngIf="form.controls['itbis'].errors?.['pattern']"
+            >Por favor ingresar el monto en decimal ejemplo: 0.00</span
+          >
+        </div>
+        <label for="PrecioFinal">Precio final</label>
+        <input
+          class="form-control"
+          formControlName="precioFinal"
+          type="number"
+          id="PrecioFinal"
+          placeholder="0.00"
+          readonly
+        />
+      </div>
+    </div>
+
+    <div class="row justify-content-center mt-4">
+      <div class="col-lg-5">
+        <button
+          *ngIf="!isupdate"
+          type="button"
+          (click)="AddProd()"
+          [ngClass]="clase"
+        >
+          {{ btnnombre }}
+        </button>
+        <button
+          *ngIf="isupdate"
+          type="button"
+          class="btn btn-success w-100"
+          (click)="Act(form.value)"
+        >
+          Actualizar
+        </button>
+      </div>
+      <div class="col-lg-5">
+        <button
+          type="button"
+          class="btn btn-danger w-100"
+          routerLink="/layout/products"
+        >
+          Cancelar
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

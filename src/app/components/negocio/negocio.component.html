@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-5 col-lg-5">
+            <h1 class="mt-3">Datos del negocio</h1>
+        </div>
+        <div class="row justify-content-center">
+              <div class="col-6">
+            <div class="shadow">
+                <div class="card mt-3">
+                    <div class="card-header bg-warning text-center text-white">
+                        <h5>Informacion de la factura <i class="bi bi-receipt"></i></h5>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="form">
+                            <label for="nombre">Nombre</label>
+                            <input id="nombre" formControlName="nombre" class="form form-control mt-2" type="text">
+                             <label for="telefono">Telefono</label>
+                            <input id="telefono" formControlName="telefono" class="form form-control mt-2" type="text">
+                             <label for="dir">Direccion</label>
+                            <input id="dir" formControlName="direccion" class="form form-control mt-2" type="text">
+                             <label for="correo">Correo</label>
+                            <input id="correo" formControlName="correo" class="form form-control mt-2" type="text" placeholder="Prueba@gmail.com">
+                             <label for="rnc">RNC</label>
+                            <input id="rnc" formControlName="rnc" class="form form-control mt-2" type="text" placeholder="Ejemplo: 002-2665-565">
+                        </form> 
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-success w-50" (click)="Put(form.value.idNegocio!)">Actualizar</button>
+                            <button class="btn btn-danger w-50">Borrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

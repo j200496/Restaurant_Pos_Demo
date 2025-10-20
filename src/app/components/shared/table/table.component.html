@@ -1,0 +1,30 @@
+
+      <div class="shadow">
+        <div class="card">
+          <div class="card-header bg-warning">
+            <h4 class="text-center text-white">{{titulo}}</h4>
+          </div>
+          <div class="card-body">
+              <div class="table-responsive border rounded p-2 mb-3" style="max-height: 350px; overflow-y: auto">
+            <table class="table table-striped table-bordered text-center align-middle">
+              <thead class="table-warning">
+                <tr *ngFor="let h of th">
+                <th>{{h.id}}</th>
+                <th>{{h.nombre}}</th>
+                <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let cat of Categoria">
+                  <td>{{cat.idCategoria}}</td>
+                  <td>{{cat.categoria}}</td>
+                  <td>
+                    <button class="btn btn-danger" (click)="Borrar(cat.idCategoria)" >Borrar</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+          </div>
+        </div>
+      </div>

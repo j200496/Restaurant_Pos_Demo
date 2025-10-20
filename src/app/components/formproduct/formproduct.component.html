@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="row justify-content-center">
+     <div class="col-lg-3">
+        <h1>{{titulo}}</h1>
+     </div>
+    </div>
+    <div class="row justify-content-center">
+     <div class="col-lg-5">
+        <label for="Nombre">Nombre</label>
+        <input class="form form-control" type="text" id="Nombre" placeholder="Nombre del producto">
+        <label for="Descripcion">Descripcion</label>
+        <input class="form form-control" type="text" id="Descripcion" placeholder="Descripcion del producto">
+        <select class="form form-control mt-4" name="" id="">
+            <option value="">Categorias</option>
+        </select>
+         <div class="form-check">
+        <input
+          class="form-check-input"
+          formControlName="estado"
+          value="No Activo"
+          type="radio"
+        />
+        <label class="form-check-label" for="radioDefault1"> No activo </label>
+     </div>
+     </div>
+     <div class="col-lg-5">
+         <label for="Precio">Precio</label>
+     <input class="form form-control" type="number" id="Precio" placeholder="Precio del producto">
+     <label for="ITBIS">ITBIS</label>
+     <input class="form form-control" type="number" id="ITBIS" placeholder="ITBIS">
+      <label for="Precio final">Precio final</label>
+     <input class="form form-control" type="number" id="Precio final" placeholder="Precio final">
+     <div class="form-check">
+        <input
+          class="form-check-input"
+          formControlName="estado"
+          value="Activo"
+          type="radio"
+          checked
+        />
+        <label class="form-check-label" for="radioDefault2"> Activo </label>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-5">
+            <button  [ngClass]="clase">{{nombre}}</button>
+          
+        </div>
+    </div>
+</div>

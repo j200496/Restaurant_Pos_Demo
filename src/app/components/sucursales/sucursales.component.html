@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row justify-content-center mt-3">
+        <div class="col-3">
+            <h1>Sucursales</h1>
+        </div>
+    </div>
+    <div class="row justify-content-start">
+        <div class="col-7">
+           <app-table (deleteEvent)="borrarsucursal($event)" [th]="th" titulo="Sucursales" [Categoria]="sucursales"></app-table>
+        </div>
+        <div class="col 5">
+            <div class="shadow">
+                <div class="card">
+                    <div class="card-header bg-warning">
+                             <h4 class="text-center text-white">Formulario</h4>
+                    </div>
+                     <div class="card-body">                 
+                                <label for="Categoria">Nombre</label>
+                              <input class="form-control"type="text" id="Categoria" placeholder="Nombre de sucursal">                      
+                        </div>
+                          <div class="card-footer">
+                            <div class="row">
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-primary w-50">Agregar</button>
+                                    <button class="btn btn-danger w-50">Cancelar </button>
+                                </div>
+                            </div>
+                           </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
