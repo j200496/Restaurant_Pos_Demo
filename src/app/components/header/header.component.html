@@ -50,7 +50,7 @@
           <a class="nav-link text-white" routerLink="/layout/negocio">Negocio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" routerLink="/layout/facturas">Caja</a>
+          <a class="nav-link text-white" routerLink="/layout/caja">Caja</a>
         </li>
         <li class="nav-item dropdown">
           <a
@@ -107,9 +107,20 @@
       <li class="nav-item">
         <a class="nav-link text-white" routerLink="/layout/sucursales">Sucursales</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link text-white" routerLink="/layout/products">Productos</a>
-      </li>
+       <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle  text-white"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false" >Productos</a>
+          <ul class="dropdown-menu bg-warning bg-opacity-75 backdrop-blur border-0">
+            <li>
+              <a class="dropdown-item text-white" routerLink="/layout/categorias">Categorias</a>
+            </li>
+             <li>
+              <a class="dropdown-item text-white" routerLink="/layout/categorias"  routerLink="/layout/products">Mantenimiento</a>
+            </li>
+          </ul>
+        </li>
       <li class="nav-item">
         <a class="nav-link text-white" routerLink="/layout/compras">Compras</a>
       </li>
@@ -120,7 +131,7 @@
         <a class="nav-link text-white" routerLink="/layout/negocio">Negocio</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" routerLink="/layout/facturas">Caja</a>
+        <a class="nav-link text-white" routerLink="/layout/caja">Caja</a>
       </li>
       <li class="nav-item dropdown">
         <a

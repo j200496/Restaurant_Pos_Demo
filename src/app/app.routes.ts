@@ -18,6 +18,7 @@ import { EstComponent } from './components/est/est.component';
 import { RepcomprasComponent } from './components/repcompras/repcompras.component';
 import { RepventasComponent } from './components/repventas/repventas.component';
 import { SucursalesComponent } from './components/sucursales/sucursales.component';
+import { CajaComponent } from './components/caja/caja.component';
 
 export const routes: Routes = [
   { path: '', component:LayoutComponent },
@@ -31,7 +32,7 @@ export const routes: Routes = [
        path:'cusuarios',component:PostusuariosComponent
       },
       {
-        path:'updusuarios/:id',component:UpdateuserComponent
+        path:'updusuarios',component:UpdateuserComponent
       },
 
       {
@@ -66,6 +67,9 @@ export const routes: Routes = [
       },
       {
         path:'sucursales',component:SucursalesComponent
+      },
+      {
+        path:'caja',component:CajaComponent
       }
     ]
    }

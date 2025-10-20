@@ -1,14 +1,16 @@
 {
   "name": "mi-proyecto-angular",
   "version": "0.0.0",
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "serve:ssr:mi-proyecto-angular": "node dist/mi-proyecto-angular/server/server.mjs"
-  },
+"scripts": {
+  "ng": "ng",
+  "start": "ng serve",
+  "build": "ng build",
+  "build:ssr": "ng build && ng run mi-proyecto-angular:server",
+  "serve:ssr:mi-proyecto-angular": "node dist/mi-proyecto-angular/server/server.mjs",
+  "watch": "ng build --watch --configuration development",
+  "test": "ng test"
+}
+,
   "private": true,
   "dependencies": {
     "@angular/common": "^19.2.0",
@@ -20,6 +22,7 @@
     "@angular/platform-server": "^19.2.0",
     "@angular/router": "^19.2.0",
     "@angular/ssr": "^19.2.7",
+    "@netlify/angular-runtime": "^3.0.0",
     "bootstrap": "^5.3.6",
     "express": "^4.18.2",
     "rxjs": "~7.8.0",

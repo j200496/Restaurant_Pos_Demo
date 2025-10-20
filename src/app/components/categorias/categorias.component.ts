@@ -26,7 +26,7 @@ th:any[] = [
 cat!:string;
 cate: categorias ={
   idCategoria:1,
-  categoria:'Hot Dog'
+  categoria:''
 }
 category: categorias[] = []
 ngOnInit(): void {
@@ -46,6 +46,9 @@ AddCat() {
 }
 Clear(){
   this.cate.categoria = "";
+}
+deletec(index: number){
+  this.category.slice(index,1)
 }
 DelCat(id: number){
   Swal.fire({
