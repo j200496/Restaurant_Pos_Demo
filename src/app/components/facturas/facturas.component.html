@@ -1,77 +1,149 @@
-<div class="container">
-    <div class="row justify-content-center mt-1">
-       <div class="col-2">
-         <h1>Facturas</h1>
-       </div>
+<div class="ps-5 pe-5 mt-5">
+  <div class="row justify-content-start">
+    <div class="col-8">
+            <div class="shadow">
+  <div class="card">
+        <div class="card-header text-white text-center bg-secondary">
+          <h4>Factura <i class="bi bi-receipt"></i></h4>
+        </div>
+        <div class="card-body">
+       <div class="row justify-content-start mb-2">
+          <div class="col-3">
+      <label for="user">Usuario</label>
+      <input
+        type="text"
+        id="user"
+        [(ngModel)]="factura.nombre"
+        class="form form-control fw-bold"
+        readonly
+      />
     </div>
-    <div class="row justify-content-start">
-        <div class="col-4">
-            <label for="user">Usuario</label>
-          <input type="text" id="user" [(ngModel)]="factura.nombre" class="form form-control fw-bold" readonly>
-        </div>
-        <div class="col-4">
-            <label for="fecha">Fecha</label>
-          <input type="text"  id="fecha" [(ngModel)]="factura.fechaRegistro" class="form form-control fw-bold" readonly>
-        </div>
-        <div class="col-3">
-            <label for="id">Buscar</label>
-            <input type="number" id="id" [(ngModel)]="buscarId" class="form form-control">
-            <button class="btn btn-primary w-100 mt-2" (click)="Master()" >Buscar</button>
-        </div>
+    <div class="col-3">
+      <label for="fecha">Fecha</label>
+      <input
+        type="text"
+        id="fecha"
+        [(ngModel)]="factura.fechaRegistro"
+        class="form form-control fw-bold"
+        readonly
+      />
     </div>
-    <div class="row justify-content-start">
-        <div class="col-8">
-            <div  class="table-responsive border rounded p-2 mb-3"
-    style="max-height: 400px; overflow-y: auto" >
-               <table class="table table-striped table-bordered text-center align-middle">
-                  <thead class="table-warning">
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Cantidad</th>
-                        <th>ITBIS</th>
-                        <th>Precio</th>
-                        <th>SubTotal</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr *ngFor="let f of factu">
-                        <td>{{f.nombre}}</td>
-                        <td>{{f.cantidad}}</td>
-                        <td>{{f.itbis | currency }}</td>
-                        <td>{{f.precio| currency}}</td>
-                        <td>{{f.subTotal | currency}}</td>
-                    </tr>
-                  </tbody>
-               </table>
-            </div>
-        </div>
-        <div class="col-3 mt-3">
-           <label for="subt">Sub total</label> 
-<input id="subt" class="form-control fw-bold" type="text" [(ngModel)]="factura.subTotal" readonly>
-
-<label for="toti">Total Itbis</label>
-<input id="toti" class="form-control fw-bold" type="text" [(ngModel)]="factura.totalItbis" readonly>
-
-<label for="mt">Monto total</label>
-<input id="mt" class="form-control fw-bold" type="text" [(ngModel)]="factura.montoTotal" readonly>
-
-<label for="tipo">Tipo</label>
-<input id="tipo" class="form-control fw-bold" type="text" [(ngModel)]="factura.tipo" readonly>
-
-<label for="estado">Estado</label>
-<input id="estado" class="form-control fw-bold" type="text" [(ngModel)]="factura.estado" readonly>
-
-<label for="cliente">Cliente</label>
-<input id="cliente" class="form-control fw-bold" type="text" [(ngModel)]="factura.cliente" readonly>
-
-        </div>
-    </div>
-    <div class="row justify-content-start">
      <div class="col-3">
-        <button class="btn btn-danger w-100 mb-1 ms-5">Cancelar factura</button>
-     </div>
+         <label for="cliente">Cliente</label>
+      <input
+        id="cliente"
+        class="form-control fw-bold"
+        type="text"
+        [(ngModel)]="factura.cliente"
+        readonly
+      />
+      </div>
       <div class="col-3">
-        <button class="btn btn-success w-100 mb-1 ms-5">Imprimir</button>
-     </div>
+        <label for="tipo">Tipo</label>
+      <input
+        id="tipo"
+        class="form-control fw-bold"
+        type="text"
+        [(ngModel)]="factura.tipo"
+        readonly
+      />
+      </div>
+       </div>
+    
+              <div
+        class="table-responsive border rounded p-2 mb-3"
+        style="max-height: 400px; overflow-y: auto"
+      >
+        <table
+          class="table table-striped table-bordered text-center align-middle"
+        >
+          <thead class="table-warning">
+            <tr>
+              <th>Nombre</th>
+              <th>Cantidad</th>
+              <th>ITBIS</th>
+              <th>Precio</th>
+              <th>SubTotal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let f of factu">
+              <td>{{ f.nombre }}</td>
+              <td>{{ f.cantidad }}</td>
+              <td>{{ f.itbis | currency }}</td>
+              <td>{{ f.precio | currency }}</td>
+              <td>{{ f.subTotal | currency }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+        </div>
+        <div class="card-footer bg-secondary text-white">
+          <div class="row">
+            <div class="col-3">
+               <label for="estado">Estado</label>
+      <input
+        id="estado"
+        class="form-control fw-bold"
+        type="text"
+        [(ngModel)]="factura.estado"
+        readonly
+      />
     </div>
+    <div class="col-3">
+      <label for="itbis">ITBIS</label>
+      <input
+        id="itbis"
+        class="form-control fw-bold"
+        type="text"
+        [(ngModel)]="factura.totalItbis"
+        readonly
+      />
+            </div>
+            <div class="col-3">
+              <label for="subt">Sub total</label>
+      <input
+        id="subt"
+        class="form-control fw-bold"
+        type="text"
+        [(ngModel)]="factura.subTotal"
+        readonly
+      />
+            </div>
+            <div class="col-3">
+              <label for="mt">Total</label>
+      <input
+        id="mt"
+        class="form-control fw-bold"
+        type="text"
+        [(ngModel)]="factura.montoTotal"
+        readonly
+      />
+            </div>
+            </div>
+          </div>
+        </div>
+            </div>
+      </div>
+      <div class="col-3 col-md-4 ps-5">
+      <label for="id">Buscar</label>
+      <input
+        type="number"
+        id="id"
+        [(ngModel)]="buscarId"
+        class="form form-control"
+      />
+      <button class="btn btn-primary w-100 mt-2 p-3" (click)="Master()">
+       <i class="bi bi-search fs-4"></i>
+      </button>
+    </div>
+    </div>
+  <div class="row justify-content-start mt-3">
+    <div class="col-3">
+      <button class="btn btn-danger w-100 mb-1 ms-5">Cancelar factura</button>
+    </div>
+    <div class="col-3">
+      <button class="btn btn-success w-100 mb-1 ms-5">Imprimir</button>
+    </div>
+  </div>
 </div>

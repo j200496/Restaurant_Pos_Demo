@@ -13,6 +13,7 @@ export class TablepipeComponent implements OnChanges{
 @Output() total = new EventEmitter<any>()
 @Input() headers: string[] = [];
 @Input() data: any[] = [];
+@Input() btntext!: string;
 
 ngOnChanges(): void {
   this.emitirTotal();

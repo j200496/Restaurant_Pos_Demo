@@ -14,13 +14,7 @@ export class ReportesComponent {
 @Input() dvclass!: string;
 @Input() dvtitle!:string;
 @Input() mt: number = 1500.00;
-@Input() theader: any[]=  [
-  
-]
-
-
-getprod(tot:number){
-
-}
+@Input() theader: any[]=  []
+//@Input() data:any[] =[]
 
 }

@@ -19,6 +19,7 @@ import { RepcomprasComponent } from './components/repcompras/repcompras.componen
 import { RepventasComponent } from './components/repventas/repventas.component';
 import { SucursalesComponent } from './components/sucursales/sucursales.component';
 import { CajaComponent } from './components/caja/caja.component';
+import { VistafacturaComponent } from './components/vistafactura/vistafactura.component';
 
 export const routes: Routes = [
   { path: '', component:LayoutComponent },
@@ -70,6 +71,9 @@ export const routes: Routes = [
       },
       {
         path:'caja',component:CajaComponent
+      },
+      {
+        path:'vista',component:VistafacturaComponent
       }
     ]
    }

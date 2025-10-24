@@ -15,11 +15,11 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let cat of Categoria">
+                <tr *ngFor="let cat of Categoria; let i = index">
                   <td>{{cat.idCategoria}}</td>
                   <td>{{cat.categoria}}</td>
                   <td>
-                    <button class="btn btn-danger" (click)="Borrar(cat.idCategoria)" >Borrar</button>
+                    <button class="btn btn-danger" (click)="Borrar(i)" >Borrar</button>
                   </td>
                 </tr>
               </tbody>

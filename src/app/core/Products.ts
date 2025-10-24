@@ -6,5 +6,5 @@ export interface Products{
   itbis: number,
   precioFinal: number,
   estado:string,
-  categoria: string
+  categoria: string,
 }
