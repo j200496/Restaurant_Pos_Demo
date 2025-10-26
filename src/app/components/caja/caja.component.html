@@ -9,6 +9,9 @@
         <div class="col-3">
             <input type="text" class="form form-control" placeholder="Buscar por nombre">
         </div>
+        <div class="col-6">
+          <input type="text" class="form form-control"[(ngModel)]="cliente" placeholder="Agrega direccion o cliente a la factura">
+        </div>
     </div>
   <div class="row"> <!-- altura de referencia -->
     <!-- Columna de productos con scroll -->
@@ -61,7 +64,7 @@
                   <td>{{p.cantidad}}</td>
                    <td>{{p.precio | currency}}</td>
                    <td>
-                    <button class="btn btn-danger" (click)="Borrar(i)" >Borrar</button>
+                    <button class="btn btn-danger btn-sm" (click)="Borrar(i)" >Borrar</button>
                    </td>
               </tr>
             </tbody>
@@ -76,7 +79,7 @@
         </div>
       </div>
       <div class="card-footer text-center">
-        <button class="btn btn-success w-50">Facturar <i class="bi bi-receipt-cutoff"></i></button>
+        <button class="btn btn-success w-50" (click)="abrirVistaPrevia()">Facturar <i class="bi bi-receipt-cutoff"></i></button>
       </div>
     </div>
   </div>
@@ -84,5 +87,52 @@
 
   </div>
 </div>
+  <!-- 🧾 Modal de vista previa -->
+  <div class="modal fade" id="vistaPreviaModal" tabindex="-1" aria-labelledby="vistaPreviaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-warning text-white">
+          <h5 class="modal-title" id="vistaPreviaLabel">Vista previa de la factura</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <div class="text-center mb-3">
+            <h4 class="fw-bold">Factura</h4>
+          </div>
+          <table class="table table-striped text-center">
+            <thead>
+              <tr>
+                <th>Producto</th>
+                <th>Descripcion</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Subtotal</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let p of prod">
+                <td>{{ p.nombre }}</td>
+                <td>{{p.descripcion}}</td>
+                <td>{{ p.cantidad }}</td>
+                <td>{{ p.precio | currency }}</td>
+                <td>{{ p.cantidad * p.precio | currency }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="text-start mt-3">
+           <p class="fw-bold">Cliente: {{cliente}}</p>
+          </div>
+          <div class="text-end mt-3">
+            <h5 class="fw-bold">Total: {{ totalGeneral | currency }}</h5>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button class="btn btn-success" (click)="imprimirFactura()">Imprimir</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 

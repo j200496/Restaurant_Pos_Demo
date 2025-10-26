@@ -3,10 +3,12 @@ import { CategoriasComponent } from "../categorias/categorias.component";
 import { SucursalesService } from '../../services/sucursales.service';
 import { TableComponent } from "../shared/table/table.component";
 import { categorias } from '../../core/categorias';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-sucursales',
-  imports: [TableComponent],
+  imports: [TableComponent,FormsModule],
   templateUrl: './sucursales.component.html',
   styleUrl: './sucursales.component.css'
 })
@@ -21,6 +23,9 @@ sucursales: categorias[] =[
 th: any[] =[
 {id:'IdSucursal',nombre:'Sucursal'}
 ]
+Agregar(s:categorias){
+this.sucursales.push({...s})
+}
 borrarsucursal(id:number){
   this.sucservice.Deletsuctursal(id).subscribe(() =>{
 

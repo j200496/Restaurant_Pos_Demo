@@ -1,6 +1,7 @@
 import { Component,input,Input,inject,Output } from '@angular/core';
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { ReporteserviceService } from '../../services/reporteservice.service';
+import { Prodcaja } from '../../core/Prodcaja';
 
 
 @Component({
@@ -15,6 +16,6 @@ export class ReportesComponent {
 @Input() dvtitle!:string;
 @Input() mt: number = 1500.00;
 @Input() theader: any[]=  []
-//@Input() data:any[] =[]
+@Input() data:Prodcaja[] =[]
 
 }

@@ -14,6 +14,7 @@ import { FoodtruckService } from '../../foodtruck.service';
 })
 export class CajaComponent {
 alertservice = inject(FoodtruckService)
+cliente!:string;
 th:any[]=[
   'Producto','Descripcion','Cantidad','Precio'
 ]
@@ -24,6 +25,8 @@ productos:any[] =[
   {nombre:'Tacos',descripcion:'Cerdo',categoria:'Tacos',precio:260,cantidad:0},
   {nombre:'Yaroa',descripcion:'Cerdo',categoria:'Yaroa',precio:260,cantidad:0},
   {nombre:'Sandwich',descripcion:'Pollo',categoria:'Sandwich',precio:260,cantidad:0},
+  {nombre:'Jugo',descripcion:'Naranja',categoria:'Bebidas',precio:100,cantidad:0},
+  {nombre:'Refresco',descripcion:'Coca cola',categoria:'Bebidas',precio:80,cantidad:0},
   {nombre:'Tacos',descripcion:'Res',categoria:'Tacos',precio:260,cantidad:0}
 ]
 Categorias: string[] = ['Filtrar por categorias','Hamburguer','Hot Dog','Tacos','Sandwich','Yaroa']
@@ -36,9 +39,23 @@ Filtrarporcategorias(categoria:string){
       this.productosFiltrados = this.productos.filter(p => p.Categoria === categoria);
     }
 }
-VistaFactura(){
-  
-}
+ abrirVistaPrevia() {
+
+const modal = document.getElementById('vistaPreviaModal');
+
+if (!this.prod || this.prod.length === 0) {
+  this.alertservice.warning("No hay productos para facturar","Error","red");
+    return; 
+  }
+if (modal) {
+  const bootstrapModal = new (window as any).bootstrap.Modal(modal);
+  bootstrapModal.show();
+    }
+  }
+
+  imprimirFactura() {
+    window.print(); 
+  }
 Agregar(p: Prodcaja){
   if(p.cantidad <= 0){
     this.alertservice.warning("Ingrese la cantidad por favor!","La cantidad seleccionada esta en 0","red");
