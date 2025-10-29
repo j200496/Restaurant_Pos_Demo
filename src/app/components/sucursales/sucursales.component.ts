@@ -5,30 +5,32 @@ import { TableComponent } from "../shared/table/table.component";
 import { categorias } from '../../core/categorias';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { FoodtruckService } from '../../foodtruck.service';
 
 @Component({
   selector: 'app-sucursales',
-  imports: [TableComponent,FormsModule],
+  imports: [TableComponent,FormsModule,CommonModule],
   templateUrl: './sucursales.component.html',
   styleUrl: './sucursales.component.css'
 })
 export class SucursalesComponent {
+  alert = inject(FoodtruckService)
 sucservice = inject(SucursalesService)
-sucursales: categorias[] =[
-   {idCategoria:1,categoria:'Sd este'},
-   {idCategoria:2,categoria:'Sd norte'},
-   {idCategoria:3,categoria:'Sd oeste'},
-   {idCategoria:4,categoria:'Distrito nacional'}
+sucursales: any[] =[
+   {categoria:'Sd este'},
+   {categoria:'Sd norte'},
+   {categoria:'Sd oeste'},
+   {categoria:'Distrito nacional'}
 ]
 th: any[] =[
-{id:'IdSucursal',nombre:'Sucursal'}
+{nombre:'Sucursal'}
 ]
-Agregar(s:categorias){
-this.sucursales.push({...s})
+suc!:any;
+Agregar(s:string){
+this.sucursales.push({categoria: s})
 }
 borrarsucursal(id:number){
-  this.sucservice.Deletsuctursal(id).subscribe(() =>{
 
-  })
+  this.sucursales.splice(id,1);
 }
 }

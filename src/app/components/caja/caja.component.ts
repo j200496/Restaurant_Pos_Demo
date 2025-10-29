@@ -1,10 +1,12 @@
-import { Component,inject } from '@angular/core';
+import { Component,inject,ViewChild,ElementRef  } from '@angular/core';
 import { TableComponent } from "../shared/table/table.component";
 import { TablepipeComponent } from "../shared/tablepipe/tablepipe.component";
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { Prodcaja } from '../../core/Prodcaja';
 import { FormsModule } from '@angular/forms';
 import { FoodtruckService } from '../../foodtruck.service';
+
+
 
 @Component({
   selector: 'app-caja',
@@ -14,13 +16,15 @@ import { FoodtruckService } from '../../foodtruck.service';
 })
 export class CajaComponent {
 alertservice = inject(FoodtruckService)
-cliente!:string;
+cliente:string = "N/A";
 th:any[]=[
   'Producto','Descripcion','Cantidad','Precio'
 ]
+  @ViewChild('facturaPrint') facturaPrint!: ElementRef;
 productos:any[] =[
   {nombre:'Hot Dog',descripcion:'Pollo',categoria:'Hot Dog',precio:160,cantidad:0},
-  {nombre:'Hamburguer',descripcion:'Res',categoria:'Hamburguer',precio:360,cantidad:0},
+  {nombre:'Hamb',descripcion:'De res',categoria:'Hamburguer',precio:360,cantidad:0},
+  {nombre:'Hamb',descripcion:'Bcon cheese',categoria:'Hamburguer',precio:360,cantidad:0},
   {nombre:'Tacos',descripcion:'Pollo',categoria:'Tacos',precio:260,cantidad:0},
   {nombre:'Tacos',descripcion:'Cerdo',categoria:'Tacos',precio:260,cantidad:0},
   {nombre:'Yaroa',descripcion:'Cerdo',categoria:'Yaroa',precio:260,cantidad:0},
@@ -53,9 +57,74 @@ if (modal) {
     }
   }
 
+
   imprimirFactura() {
-    window.print(); 
+    // Imprime el contenido del div facturaPrint
+    //this.printService.printElement(this.facturaPrint.nativeElement);
   }
+
+imprimirFacturaw() {
+ const contenido = document.getElementById('vistaPreviaModal')?.innerHTML;
+
+    if (contenido) {
+      const ventana = window.open('', '', 'width=400,height=600');
+      if (ventana) {
+        ventana.document.write(`
+        <html>
+  <head>
+    <title>Factura</title>
+    <style>
+      body {
+        font-family: monospace;
+        font-size: 11px;
+        width: 58mm;
+        padding: 5px;
+        margin: 0;
+      }
+      table {
+        width: 80%;
+        border-collapse: collapse;
+        font-size: 10;
+      }
+        button{
+        display:none;
+        }
+        .modal-header{
+        display:none;
+        }
+      th, td {
+        border-bottom: 1px dashed #000;
+        padding: 1px 0;
+        text-align: left;
+      }
+        h5{
+        padding: 2px;
+        font-size: 12px;
+        }
+      p {
+        margin-bottom: 0;
+      }
+      @page {
+        size: 58mm auto;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    ${contenido}
+  </body>
+</html>
+
+        `);
+        ventana.document.close();
+        ventana.focus();
+        ventana.print();
+        ventana.close();
+
+}
+ }
+  }
+
 Agregar(p: Prodcaja){
   if(p.cantidad <= 0){
     this.alertservice.warning("Ingrese la cantidad por favor!","La cantidad seleccionada esta en 0","red");

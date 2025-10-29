@@ -67,7 +67,7 @@ return Swal.fire({
   cancelButtonColor: btncolor,
 }).then((result) =>{
   if(result.isConfirmed){
-this.warning("Exito!","Datos borrados existosamente!","green");
+this.warning("Borrado!","Datos borrados existosamente!","green");
   }
 })
  }

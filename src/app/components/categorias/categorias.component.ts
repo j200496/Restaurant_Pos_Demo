@@ -17,24 +17,28 @@ import Swal, { SweetAlertIcon } from 'sweetalert2';
 export class CategoriasComponent implements OnInit{
   catserv = inject(CategoriasService)
   alertserv = inject(FoodtruckService);
-categoria: categorias[] = [
-  {idCategoria:0,categoria:''}
+categorias: categorias[] = [
+  {categoria:''}
 ]
 th:any[] = [
   {id:'IdCategoria',nombre:'Categoria'}
 ]
 cat!:string;
 cate: categorias ={
-  idCategoria:1,
   categoria:''
 }
-category: categorias[] = []
+category: categorias[] = [
+  {categoria:'Hot Dog'},
+  {categoria:'Hambuerguer'},
+  {categoria:'Platos'},
+   {categoria:'Bebidas'},
+]
 ngOnInit(): void {
   this.GetCat();
 }
 GetCat(){
   this.catserv.getcategorias().subscribe( c => {
-    this.categoria = c;
+    this.categorias = c;
   })
 }
 AddCat() {
@@ -48,7 +52,7 @@ Clear(){
   this.cate.categoria = "";
 }
 deletec(index: number){
-  this.category.slice(index,1)
+  this.category.splice(index,1)
 }
 DelCat(id: number){
   Swal.fire({

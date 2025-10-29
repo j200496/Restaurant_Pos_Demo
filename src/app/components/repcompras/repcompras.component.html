@@ -1,1 +1,24 @@
-<app-reportes dvclass="bg-danger text-white p-1 rounded-4" dvtitle="Cuentas por pagar" titulo="Reporte compras"></app-reportes>
+
+<div class="container">
+    <div class="row justify-content-center mt-3">
+        <div class="col-lg-5">
+            <h1>Reporte de compras</h1>
+        </div>
+    </div>
+    <div class="row justify-content-start mb-2">
+        <div class="col-lg-3 col-3">
+            <button class="btn btn-primary w-100">Filtrar</button>
+        </div>
+        <div class="col-lg-3 col-3">
+            <input type="date" class="form form-control">
+        </div>
+            <div class="col-lg-3 col-3">
+            <input type="date" class="form form-control">
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <app-tablecompras [data]="compra" [headers]="headers"></app-tablecompras>
+        </div>
+    </div>
+</div>

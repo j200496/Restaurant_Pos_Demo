@@ -1,16 +1,15 @@
 {
   "name": "mi-proyecto-angular",
   "version": "0.0.0",
-"scripts": {
-  "ng": "ng",
-  "start": "ng serve",
-  "build": "ng build",
-  "build:ssr": "ng build && ng run mi-proyecto-angular:server",
-  "serve:ssr:mi-proyecto-angular": "node dist/mi-proyecto-angular/server/server.mjs",
-  "watch": "ng build --watch --configuration development",
-  "test": "ng test"
-}
-,
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "build:ssr": "ng build && ng run mi-proyecto-angular:server",
+    "serve:ssr:mi-proyecto-angular": "node dist/mi-proyecto-angular/server/server.mjs",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
+  },
   "private": true,
   "dependencies": {
     "@angular/common": "^19.2.0",
@@ -23,8 +22,13 @@
     "@angular/router": "^19.2.0",
     "@angular/ssr": "^19.2.7",
     "@netlify/angular-runtime": "^3.0.0",
+    "apexcharts": "^3.54.1",
     "bootstrap": "^5.3.6",
+    "chart.js": "^4.4.1",
     "express": "^4.18.2",
+    "ng-apexcharts": "^1.7.4",
+    "ng2-charts": "^6.0.1",
+    "ngx-print-element": "^2.1.8",
     "rxjs": "~7.8.0",
     "sweetalert2": "^11.22.2",
     "tslib": "^2.3.0",

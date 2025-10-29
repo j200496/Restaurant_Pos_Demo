@@ -22,7 +22,6 @@ export class TableComponent implements OnInit{
 service = inject(CategoriasService);
 alertservice = inject(FoodtruckService);
 cat: categorias ={
-  idCategoria: 0,
   categoria:''
 }
 ngOnInit(): void {
