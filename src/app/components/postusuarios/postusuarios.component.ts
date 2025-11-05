@@ -5,15 +5,16 @@ import { RouterLink } from '@angular/router';
 import { UsuariosformComponent } from "../shared/usuariosform/usuariosform.component";
 import { FoodtruckService } from '../../foodtruck.service';
 import { Router } from '@angular/router';
+import { FormusuariosComponent } from "../formusuarios/formusuarios.component";
 
 @Component({
   selector: 'app-postusuarios',
-  imports: [CommonModule, FormsModule, UsuariosformComponent],
+  imports: [CommonModule, FormsModule, FormusuariosComponent],
   templateUrl: './postusuarios.component.html',
   styleUrl: './postusuarios.component.css'
 })
 export class PostusuariosComponent {
-  formbuilder = inject(FormBuilder);
+ /* formbuilder = inject(FormBuilder);
   service = inject(FoodtruckService);
     route = inject(Router);
 form = this.formbuilder.group({
@@ -40,5 +41,5 @@ form = this.formbuilder.group({
     this.route.navigateByUrl("/layout/lusuarios");
     })
     })
-  }
+  }*/
 }

@@ -23,8 +23,9 @@ th:any[]=[
   @ViewChild('facturaPrint') facturaPrint!: ElementRef;
 productos:any[] =[
   {nombre:'Hot Dog',descripcion:'Pollo',categoria:'Hot Dog',precio:160,cantidad:0},
-  {nombre:'Hamb',descripcion:'De res',categoria:'Hamburguer',precio:360,cantidad:0},
-  {nombre:'Hamb',descripcion:'Bcon cheese',categoria:'Hamburguer',precio:360,cantidad:0},
+  {nombre:'Hamburgesa',descripcion:'De res',categoria:'Hamburguer',precio:360,cantidad:0},
+  {nombre:'Hamburgesa',descripcion:'Bcon cheese',categoria:'Hamburguer',precio:360,cantidad:0},
+   {nombre:'Hamburgesa',descripcion:'De pollo',categoria:'Hamburguer',precio:360,cantidad:0},
   {nombre:'Tacos',descripcion:'Pollo',categoria:'Tacos',precio:260,cantidad:0},
   {nombre:'Tacos',descripcion:'Cerdo',categoria:'Tacos',precio:260,cantidad:0},
   {nombre:'Yaroa',descripcion:'Cerdo',categoria:'Yaroa',precio:260,cantidad:0},
@@ -34,14 +35,36 @@ productos:any[] =[
   {nombre:'Tacos',descripcion:'Res',categoria:'Tacos',precio:260,cantidad:0}
 ]
 Categorias: string[] = ['Filtrar por categorias','Hamburguer','Hot Dog','Tacos','Sandwich','Yaroa']
+filtro: string = "";
+filtrarprod: any[] = [...this.productos];
+BuscarProd() {
+  const texto = this.filtro.toLowerCase().trim();
+  this.filtrarprod = this.productos.filter(p =>
+    p.nombre.toLowerCase().includes(texto) || p.categoria.toLowerCase().includes(texto)
+    || p.descripcion.toLowerCase().includes(texto)
+  );
+}
 prod: Prodcaja[] =[]
 productosFiltrados: any[] = [...this.productos];
-Filtrarporcategorias(categoria:string){
-  if(categoria === 'Filtrar por categorias'){
-    this.productosFiltrados=[...this.productos];
-  }else {
-      this.productosFiltrados = this.productos.filter(p => p.Categoria === categoria);
-    }
+textcat: string = "Filtrar por categorias";
+fecha = new Date()
+fechahoy = this.fecha.toLocaleDateString()
+Filtrarporcategorias(){
+  const texto = this.textcat;
+this.filtrarprod = texto
+  ? this.productos.filter(p => p.categoria.toLowerCase().includes(texto))
+  : [...this.productos];
+
+
+}
+Increase(c:any){
+  c.cantidad ++;
+}
+
+Decrease(c:any){
+  if(c.cantidad > 0){
+    c.cantidad --;
+  }
 }
  abrirVistaPrevia() {
 
@@ -56,8 +79,6 @@ if (modal) {
   bootstrapModal.show();
     }
   }
-
-
   imprimirFactura() {
     // Imprime el contenido del div facturaPrint
     //this.printService.printElement(this.facturaPrint.nativeElement);
@@ -92,6 +113,12 @@ imprimirFacturaw() {
         .modal-header{
         display:none;
         }
+        h3{
+        padding-left:55px;
+        }
+       .pf{
+         margin-bottom: 5px;
+          }
       th, td {
         border-bottom: 1px dashed #000;
         padding: 1px 0;
@@ -100,9 +127,11 @@ imprimirFacturaw() {
         h5{
         padding: 2px;
         font-size: 12px;
+        margin-top: 2px;
         }
       p {
         margin-bottom: 0;
+        margin-top: 0;
       }
       @page {
         size: 58mm auto;

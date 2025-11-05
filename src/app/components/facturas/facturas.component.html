@@ -3,12 +3,12 @@
     <div class="col-8">
             <div class="shadow">
   <div class="card">
-        <div class="card-header text-white text-center bg-secondary">
+        <div class="card-header text-white text-center bg-success">
           <h4>Factura <i class="bi bi-receipt"></i></h4>
         </div>
         <div class="card-body">
        <div class="row justify-content-start mb-2">
-          <div class="col-3">
+          <div class="col-4">
       <label for="user">Usuario</label>
       <input
         type="text"
@@ -18,7 +18,7 @@
         readonly
       />
     </div>
-    <div class="col-3">
+    <div class="col-4">
       <label for="fecha">Fecha</label>
       <input
         type="text"
@@ -28,17 +28,7 @@
         readonly
       />
     </div>
-     <div class="col-3">
-         <label for="cliente">Cliente</label>
-      <input
-        id="cliente"
-        class="form-control fw-bold"
-        type="text"
-        [(ngModel)]="factura.cliente"
-        readonly
-      />
-      </div>
-      <div class="col-3">
+      <div class="col-4">
         <label for="tipo">Tipo</label>
       <input
         id="tipo"
@@ -48,8 +38,7 @@
         readonly
       />
       </div>
-       </div>
-    
+       </div>  
               <div
         class="table-responsive border rounded p-2 mb-3"
         style="max-height: 400px; overflow-y: auto"
@@ -78,7 +67,7 @@
         </table>
       </div>
         </div>
-        <div class="card-footer bg-secondary text-white">
+        <div class="card-footer bg-success text-white">
           <div class="row">
             <div class="col-3">
                <label for="estado">Estado</label>

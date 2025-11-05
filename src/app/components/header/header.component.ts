@@ -17,7 +17,9 @@ export class HeaderComponent {
   this.foodtruckservice.obtenerUsuarios().subscribe(datos => {
   this.usuarios = datos;
   });
-    
+  }
+  Logout(){
+    this.foodtruckservice.confirmruta('Seguro deseas salir?','Log off','login');
   }
 
 }

@@ -1,11 +1,19 @@
 <div class="container">
- <app-tables 
-  [columns]="tableColumns"
-  [data]="users"
-  [fields]="{title:'Usuarios', btncrear:'Crear usuario'}" 
-  ruta="/layout/updusuarios" (metodo)="Borrar($event)">
-</app-tables>
-
+ <div class="row justify-content-center">
+  <div class="col-lg-2">
+    <h1 class="mt-2">Usuarios</h1>
+  </div>
+ </div>
+ <div class="row justify-content-start">
+  <div class="col-4">
+    <button class="btn btn-primary w-100 mb-2" routerLink="/layout/cusuarios">Agregar</button>
+  </div>
+ </div>
+<div class="row justify-content-center">
+<div class="col-lg-10">
+    <app-tablausuarios [headers]="th" [data]="users"></app-tablausuarios>
+</div>
+</div>
 </div>
 
 

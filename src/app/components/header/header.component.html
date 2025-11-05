@@ -32,11 +32,11 @@
             data-bs-toggle="dropdown"
             aria-expanded="false" >Productos</a>
           <ul class="dropdown-menu bg-warning bg-opacity-75 backdrop-blur border-0">
-            <li>
-              <a class="dropdown-item text-white" routerLink="/layout/categorias">Categorias</a>
-            </li>
              <li>
               <a class="dropdown-item text-white" routerLink="/layout/categorias"  routerLink="/layout/products">Mantenimiento</a>
+            </li>
+              <li>
+              <a class="dropdown-item text-white" routerLink="/layout/categorias">Categorias</a>
             </li>
           </ul>
         </li>
@@ -69,13 +69,10 @@
             <li>
               <a class="dropdown-item text-white" routerLink="/layout/repcompras">Compras</a>
             </li>
-            <li>
-              <a class="dropdown-item text-white" routerLink="/layout/est">Estadísticas</a>
-            </li>
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" routerLink="">Logout</a>
+          <a class="nav-link text-white" (click)="Logout()">Logout</a>
         </li>
       </ul>
     </div>

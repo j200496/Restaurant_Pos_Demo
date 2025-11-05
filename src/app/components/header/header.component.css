@@ -1,3 +1,6 @@
 .dropdown-item:hover{
     background-color: hsl(54, 98%, 50%);
 }
+a{
+    cursor: pointer;
+}

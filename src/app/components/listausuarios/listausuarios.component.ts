@@ -3,21 +3,23 @@ import { FoodtruckService } from '../../foodtruck.service';
 import { RouterLink } from '@angular/router';
 import { TablesComponent } from "../shared/usuariosform/tables/tables.component";
 import Swal, { SweetAlertIcon } from 'sweetalert2';
+import { TablausuariosComponent } from "../tablausuarios/tablausuarios.component";
 
 @Component({
   selector: 'app-listausuarios',
-  imports: [TablesComponent],
+  imports: [TablausuariosComponent, RouterLink],
   templateUrl: './listausuarios.component.html',
   styleUrl: './listausuarios.component.css'
 })
 export class ListausuariosComponent {
 UsuariosService = inject(FoodtruckService)
-
+th:string[] = ['Nombre','Usuario','Clave','Rol','Estado','Acciones']
 usuarios: any[] = [];
 users: any[] = [
   {nombre:'Prueba1',usuario:'Test',clave:'Test1',rol:'ADMINISTRADOR',estado:'Activo'},
    {nombre:'Prueba2',usuario:'Test2',clave:'Test2',rol:'EMPLEADO',estado:'Activo'}
 ]
+/*
 ngOnInit(){
 //this.Refresh();
 }
@@ -50,6 +52,6 @@ tableColumns = [
   { field: 'rol', header: 'Rol'},
   { field: 'estado', header: 'Estado'}
 ];
-
+*/
 
 }
